@@ -1,6 +1,5 @@
 import 'package:cnic/config/config.dart';
-import 'package:cnic/screens/code.dart';
-import 'package:cnic/screens/scan.dart';
+import 'package:cnic/screens/card.dart';
 import 'package:cnic/widgets/button.dart';
 import 'package:flutter/material.dart';
 import 'package:auto_size_text/auto_size_text.dart';
@@ -34,6 +33,8 @@ class _HomeState extends State<Home> {
             ),
             CButton(
               onPressed: () {
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (context) => CardUI()));
                 //scanConnexion();
               },
               icon: Icons.camera_alt_outlined,
@@ -69,7 +70,6 @@ class _HomeState extends State<Home> {
               controller: codeController,
               autofocus: true,
               decoration: InputDecoration(
-                //fillColor: Colors.green,
                 focusColor: Colors.green,
                 focusedBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10.0),
@@ -83,11 +83,6 @@ class _HomeState extends State<Home> {
                 hintStyle: const TextStyle(
                     color: Colors.grey, fontWeight: FontWeight.bold),
               ),
-              /*validator: (value) {
-                if (value!.isEmpty) {
-                  return "Enter your code";
-                }
-              },*/
             ),
             actions: [TextButton(onPressed: submit, child: const Text("Save"))],
           ));
